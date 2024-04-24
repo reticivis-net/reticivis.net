@@ -1,0 +1,48 @@
+/* thanks chatgpt */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('EOT/Atkinson-Hyperlegible-Regular-102.eot'); /* IE9 Compat Modes */
+    src: url('EOT/Atkinson-Hyperlegible-Regular-102.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('WOFF2/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2'), /* Super Modern Browsers */
+    url('WOFF/Atkinson-Hyperlegible-Regular-102.woff') format('woff'), /* Pretty Modern Browsers */
+    url('TTF/Atkinson-Hyperlegible-Regular-102.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('SVG/Atkinson-Hyperlegible-Regular-102.svg#AtkinsonHyperlegible-Regular') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('EOT/Atkinson-Hyperlegible-Bold-102.eot');
+    src: url('EOT/Atkinson-Hyperlegible-Bold-102.eot?#iefix') format('embedded-opentype'),
+    url('WOFF2/Atkinson-Hyperlegible-Bold-102a.woff2') format('woff2'),
+    url('WOFF/Atkinson-Hyperlegible-Bold-102.woff') format('woff'),
+    url('TTF/Atkinson-Hyperlegible-Bold-102.ttf')  format('truetype'),
+    url('SVG/Atkinson-Hyperlegible-Bold-102.svg#AtkinsonHyperlegible-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('EOT/Atkinson-Hyperlegible-Italic-102.eot');
+    src: url('EOT/Atkinson-Hyperlegible-Italic-102.eot?#iefix') format('embedded-opentype'),
+    url('WOFF2/Atkinson-Hyperlegible-Italic-102a.woff2') format('woff2'),
+    url('WOFF/Atkinson-Hyperlegible-Italic-102.woff') format('woff'),
+    url('TTF/Atkinson-Hyperlegible-Italic-102.ttf')  format('truetype'),
+    url('SVG/Atkinson-Hyperlegible-Italic-102.svg#AtkinsonHyperlegible-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('EOT/Atkinson-Hyperlegible-BoldItalic-102.eot');
+    src: url('EOT/Atkinson-Hyperlegible-BoldItalic-102.eot?#iefix') format('embedded-opentype'),
+    url('WOFF2/Atkinson-Hyperlegible-BoldItalic-102a.woff2') format('woff2'),
+    url('WOFF/Atkinson-Hyperlegible-BoldItalic-102.woff') format('woff'),
+    url('TTF/Atkinson-Hyperlegible-BoldItalic-102.ttf')  format('truetype'),
+    url('SVG/Atkinson-Hyperlegible-BoldItalic-102.svg#AtkinsonHyperlegible-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}

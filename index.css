@@ -1,0 +1,120 @@
+:root {
+    --bs-font-sans-serif: 'Atkinson Hyperlegible', Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.block {
+    background-color: #111;
+    padding: 3px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.block-header {
+    background-color: #111;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    vertical-align: middle;
+    word-break: break-word;
+}
+
+.block-footer {
+    background-color: #1d1d1d;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    padding: 10px;
+    text-align: center;
+    z-index: 10;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+.block-header img {
+    display: inline-block;
+    height: 1em;
+    vertical-align: middle;
+    position: relative;
+    margin-top: -7px;
+}
+
+.pfix {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #111;
+    padding: 10px;
+}
+
+body {
+    padding-bottom: 45px;
+}
+
+.afix, .afix:hover, .afix:active, .afix:focus {
+    color: inherit;
+    text-decoration: inherit;
+    background-color: inherit;
+    outline: 0;
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 2em;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 400px) {
+    .header img {
+        width: 70%;
+    }
+}
+
+.link {
+    font-size: 1.40625rem;
+}
+
+.link svg {
+    margin-left: 5px;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+}
+
+.display-1 {
+    font-size: 6em;
+    line-height: 1.2;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    margin-top: 0;
+}
+
+.cool-link {
+    color: #fff
+}
+
+.cool-link:hover {
+    text-decoration: none;
+    color: #aaa;
+    cursor: pointer;
+}
