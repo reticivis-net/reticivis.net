@@ -58,9 +58,9 @@
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
     width: 100%;
     text-align: center;
     background-color: #111;
@@ -68,7 +68,7 @@
 }
 
 body {
-    padding-bottom: 45px;
+    /*padding-bottom: 45px;*/
 }
 
 .afix, .afix:hover, .afix:active, .afix:focus {
