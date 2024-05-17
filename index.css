@@ -69,6 +69,7 @@
 
 body {
     /*padding-bottom: 45px;*/
+    overflow-x:hidden;
 }
 
 .afix, .afix:hover, .afix:active, .afix:focus {
