@@ -1,6 +1,7 @@
-import * as THREE from "./libs/three/three.module.min.js";
+import * as THREE from "three"; //"./libs/three/three.module.min.js";
 import {GLTFLoader} from './libs/three/GLTFLoader.min.js';
 import {RoomEnvironment} from "./libs/three/RoomEnvironment.min.js";
+// import * as BufferGeometryUtils from "./libs/three/BufferGeometryUtils.min.js";
 
 let ready = false;
 
@@ -8,7 +9,7 @@ const scene = new THREE.Scene();
 
 const renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(document.documentElement.clientWidth, window.innerHeight);
-renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setPixelRatio(window.devicePixelRatio);
 // weird stuff that fixes overexposure
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputEncoding = THREE.sRGBEncoding;
@@ -16,22 +17,30 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 const fov = 50;
 
 const camera = new THREE.PerspectiveCamera(fov, document.documentElement.clientWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 5;
+camera.position.z = 8;
 
 let logo;
 
-const pmremGenerator = new THREE.PMREMGenerator( renderer );
-scene.background = new THREE.Color( 0 );
-scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
-const logomaterial = new THREE.MeshStandardMaterial({});
+const pmremGenerator = new THREE.PMREMGenerator(renderer);
+scene.background = new THREE.Color(0);
+scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0).texture;
+const logomaterial = new THREE.MeshStandardMaterial({
+    roughness: 0.5, metalness: 1, color: 0xffffff
+});
+// console.debug(THREE.BackSide);
 // scene.background = new THREE.Color(0xD3E8F0);
 
 const loader = new GLTFLoader();
-loader.load('./assets/reticivis.glb', function (gltf) {
+loader.load('./assets/reticivis3.glb', function (gltf) {
     logo = gltf.scene;
+
+    // logo.material = logomaterial;
+
     logo.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
             child.material = logomaterial;
+            //         // child.geometry = (child.geometry, 0.001);
+            //         // fixDuckingNormals(child);
         }
     });
     // logo.position.x = -1.65;
@@ -74,17 +83,20 @@ function arrayfromfunc(len, func) {
 
 const curve = new THREE.CatmullRomCurve3(
     arrayfromfunc(100, () =>
-        new THREE.Vector3(randomFloat(-0.4, 0.4),randomFloat(-0.4, 0.4),randomFloat(-0.05, 0.05))
+        new THREE.Vector3(randomFloat(-0.4, 0.4), randomFloat(-0.4, 0.4), randomFloat(-0.05, 0.05))
     ),
     true,
     "centripetal",
     0.4
 );
+
 function randomFloat(min, max) {
     return Math.random() * (max - min) + min;
 }
+
 const start = Date.now();
 let last = start;
+
 function animate() {
     // frame delta calculations
     let elapsed = Date.now() - start;
