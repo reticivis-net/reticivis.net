@@ -1,7 +1,10 @@
 import * as THREE from "three"; //"./libs/three/three.module.min.js";
 import {GLTFLoader} from './libs/three/GLTFLoader.min.js';
 import {RoomEnvironment} from "./libs/three/RoomEnvironment.min.js";
+import {MeshLine, MeshLineMaterial, MeshLineRaycast} from "./libs/three/THREE.MeshLine.min.js";
+import {Timer} from "./libs/three/Timer.min.js";
 // import * as BufferGeometryUtils from "./libs/three/BufferGeometryUtils.min.js";
+
 
 let ready = false;
 
@@ -17,7 +20,7 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 const fov = 50;
 
 const camera = new THREE.PerspectiveCamera(fov, document.documentElement.clientWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 8;
+camera.position.z = 10;
 
 let logo;
 
@@ -46,6 +49,8 @@ loader.load('./assets/reticivis3.glb', function (gltf) {
     // logo.position.x = -1.65;
     // logo.position.y = -.7;
     // console.debug(logo)
+    // logo.renderOrder = 999;
+    logo.onBeforeRender = function (renderer) { renderer.clearDepth(); };
     scene.add(logo)
     // scene.add(logo);
     console.debug(logo);
@@ -94,21 +99,116 @@ function randomFloat(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-const start = Date.now();
-let last = start;
 
-function animate() {
-    // frame delta calculations
-    let elapsed = Date.now() - start;
-    let delta = Date.now() - last;
-    last = Date.now();
+const linemin = -3;
+const linemax = 10;
 
-    let randvec = curve.getPoint(elapsed / 1000 / 100);
-    logo.setRotationFromEuler(new THREE.Euler().setFromVector3(randvec));
+const linesgroup = new THREE.Group();
+linesgroup.renderOrder = -999;
+scene.add(linesgroup);
+
+function loopbetween(min, max, value) {
+    let range = max - min;
+    return min + (value - min) % range;
+}
+
+let timer = new Timer();
+
+class Line {
+    position;
+    speed;
+    length;
+    starttime;
+    threejsline;
+
+    constructor(restart, excess) {
+        // console.debug("new line")
+        this.position = new THREE.Vector3(
+            randomFloat(-0.4, 0.4),
+            randomFloat(-0.4, 0.4),
+            restart ? loopbetween(-linemin, linemax, linemax - excess) : randomFloat(linemin, linemax)
+        );
+        this.speed = randomFloat(2, 5);
+        this.length = randomFloat(0.1, 0.5);
+        this.starttime = timer.getElapsed();
+
+        // line.setPoints(points);
+        let ml =  new MeshLine();
+        ml.setPoints([
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(0, 0, this.length),
+        ], p => 0.001);
+        const material = new MeshLineMaterial({color:new THREE.Color(0xffffff)});
+        material.depthTest = false;
+        material.depthWrite = false;
+
+        this.threejsline = new THREE.Mesh(ml, material);
+        // new THREE.Line(
+        //     new THREE.BufferGeometry().setFromPoints([
+        //         new THREE.Vector3(0, 0, 0),
+        //         new THREE.Vector3(0, 0, this.length),
+        //     ]),
+        //     new THREE.LineBasicMaterial({color: 0xffffff})
+        // );
+        this.threejsline.position.x = this.position.x;
+        this.threejsline.position.y = this.position.y;
+        this.threejsline.position.z = this.position.z;
+        linesgroup.add(this.threejsline);
+    }
+
+    animate() {
+        let time = (timer.getElapsed() - this.starttime);
+        // this.position.add(new THREE.Vector3(0, 0, -this.speed));
+        // this.threejsline.geometry.setFromPoints([
+        //     new THREE.Vector3(this.position.x, this.position.y, this.position.z - this.speed * time),
+        //     new THREE.Vector3(this.position.x, this.position.y, this.position.z + this.length - this.speed * time)
+        // ]);
+        this.threejsline.position.z = (this.position.z - this.speed * time);
+        return linemin - (this.position.z - this.speed * time);
+    }
+
+    dispose() {
+        // console.debug("dispose")
+        linesgroup.remove(this.threejsline);
+    }
+}
+
+let lines = arrayfromfunc(1000, () => new Line(false));
+// for (const linesKey of lines) {
+//     scene.add(linesKey.threejsline);
+// }
+console.warn(scene);
 
 
+
+
+function animate(now) {
     // render
     requestAnimationFrame(animate);
+    // frame delta calculations
+    // let elapsed = Date.now() - start;
+    // let delta = Date.now() - last;
+    // render_time += delta;
+
+    timer.update(now);
+
+    let randvec = curve.getPoint(timer.getElapsed() / 100);
+    logo.setRotationFromEuler(new THREE.Euler().setFromVector3(randvec));
+
+    for (let i = 0; i < lines.length; i++) {
+        let dist = lines[i].animate();
+        if (dist > 0) {
+            lines[i].dispose()
+            // console.debug(lines[i]);
+            lines[i] = new Line(true, dist);
+            // console.debug(lines[i]);
+            // console.debug("-");
+            // scene.add(lines[i].threejsline);
+        }
+    }
+    // console.debug(lines);
+
+
     renderer.render(scene, camera);
 }
 
