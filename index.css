@@ -173,19 +173,6 @@ body {
     display: grid;
     gap: 1.5rem;
     padding-top: 1rem;
-}
-
-.grid-item {
-    padding: 1rem;
-}
-.grid-container::after {
-    content: "";
-    display: block;
-    grid-column: 1 / -1;
-}
-
-.grid-container {
-
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
@@ -195,6 +182,11 @@ body {
         grid-template-columns: 1fr; /* Change to 1 column */
     }
 }
+
+.grid-item {
+    padding: 1rem;
+}
+
 
 * {
     word-break: break-word;
