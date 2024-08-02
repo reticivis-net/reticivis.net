@@ -151,3 +151,51 @@ body {
     font-weight: bolder;
 }
 
+.glass {
+    /*margin: 1rem;*/
+    /*padding: 1rem;*/
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem;
+    outline: 0.25rem solid #0003;
+    background: #0006;
+}
+
+.bg {
+    background-image: url("https://imgflip.com/s/meme/Doge.jpg");
+    background-repeat: repeat;
+    padding: 1rem;
+    background-attachment: fixed;
+}
+
+/*thanks to chatgpt for this*/
+
+.grid-container {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+
+.grid-item {
+    padding: 1rem;
+}
+.grid-container::after {
+    content: "";
+    display: block;
+    grid-column: 1 / -1;
+}
+
+.grid-container {
+
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+/*this should get it to properly shrink on smaller devices*/
+@media (max-width: 400px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Change to 1 column */
+    }
+}
+
+* {
+    word-break: break-word;
+}

@@ -205,9 +205,16 @@ let lines = arrayfromfunc(1000, () => new Line(false));
 // }
 
 let mousepos = {x: 0, y: 0};
+let targetmousepos = {x: 0, y: 0};
 let visible = true;
 let paused = false;
 let id;
+
+function frame_independent_lerp_smoothing(a, b, dt) {
+    // https://www.youtube.com/watch?v=LSNQuFEDOyQ&t=1776s
+    const r = 0.01; // 0-1, lower = faster
+    return (a - b) * Math.pow(r, dt) + b;
+}
 
 function animate(now) {
     // console.log("render");
@@ -241,6 +248,10 @@ function animate(now) {
             // scene.add(lines[i].threejsline);
         }
     }
+    // console.debug(mousepos);
+    // ease the logo to face the mouse, eases transition when mouse leaves or comes back
+    mousepos.x = frame_independent_lerp_smoothing(mousepos.x, targetmousepos.x, timer.getDelta());
+    mousepos.y = frame_independent_lerp_smoothing(mousepos.y, targetmousepos.y, timer.getDelta());
     // console.debug(lines);
 
 
@@ -277,7 +288,7 @@ function moveevent(event) {
     const rect = renderer.domElement.getBoundingClientRect();
     // gets the mouse position in the element, ranging from -1 to 1
     // thanks to copilot for this im tired
-    mousepos = {
+    targetmousepos = {
         x: (event.clientX - rect.left) / rect.width * 2 - 1,
         y: (event.clientY - rect.top) / rect.height * 2 - 1
     };
@@ -288,7 +299,7 @@ renderer.domElement.addEventListener("pointerenter", moveevent)
 renderer.domElement.addEventListener("pointermove", moveevent)
 
 function endevent() {
-    mousepos = {x: 0, y: 0};
+    targetmousepos = {x: 0, y: 0};
     // console.debug(mousepos);
 }
 
