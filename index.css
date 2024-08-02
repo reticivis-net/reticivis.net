@@ -128,16 +128,17 @@ body {
 }
 
 .textemphasis {
-
     font-size: 6rem;
 
     /* https://stackoverflow.com/a/63791417/9044183 this mess */
     --d: 100vh;
-    --angle: 25deg;
-    background: repeating-linear-gradient(var(--angle) in oklab, #4A32E6, #2E50E6, #8632E6, #C232E6, #E62EBE, #C232E6, #8632E6, #2E50E6, #4A32E6 var(--d));
-    background-size: calc(var(--d) / sin(var(--angle))) 100%;
-    animation: gradient 5s linear infinite reverse;
+    --angle: -45deg;
+    background: repeating-linear-gradient(var(--angle) in oklab, #2E50E6, #4A32E6, #8632E6, #C232E6, #E62EBE, #C232E6, #8632E6, #4A32E6, #2E50E6 var(--d));
+    background-size: calc(-1 * /*remove that -1 if angle goes positive*/(var(--d) / sin(var(--angle)))) 100%;
+    animation: gradient 5s linear infinite;
+
     /* https://stackoverflow.com/a/69989367/9044183 yippee no vendor prefixes! */
+    /*DO NOT MOVE THIS ABOVE THE BACKGROUND CSS, IT BREAKS IT FOR SOME FUCKING REASON?*/
     color: transparent;
     background-clip: text;
     font-weight: bolder;
