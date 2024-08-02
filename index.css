@@ -127,15 +127,22 @@ body {
     text-align: center;
 }
 
-.textemphasis {
-    font-size: 6rem;
+/*literally how does this even work there's 1 fucking keyframe*/
+@keyframes gradient {
+    0% {
+        background-position: calc(var(--d) / sin(var(--angle))) 0;
+    }
+}
 
-    /* https://stackoverflow.com/a/63791417/9044183 this mess */
+.textemphasis {
+    /* https://stackoverflow.com/a/63791417/9044183 evil css trig hack to get gradients to loop properly */
     --d: 100vh;
     --angle: -45deg;
     background: repeating-linear-gradient(var(--angle) in oklab, #2E50E6, #4A32E6, #8632E6, #C232E6, #E62EBE, #C232E6, #8632E6, #4A32E6, #2E50E6 var(--d));
     background-size: calc(-1 * /*remove that -1 if angle goes positive*/(var(--d) / sin(var(--angle)))) 100%;
     animation: gradient 5s linear infinite;
+
+    font-size: 6rem;
 
     /* https://stackoverflow.com/a/69989367/9044183 yippee no vendor prefixes! */
     /*DO NOT MOVE THIS ABOVE THE BACKGROUND CSS, IT BREAKS IT FOR SOME FUCKING REASON?*/
@@ -144,8 +151,3 @@ body {
     font-weight: bolder;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: calc(var(--d) / sin(var(--angle))) 0;
-    }
-}
