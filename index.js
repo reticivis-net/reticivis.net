@@ -156,7 +156,7 @@ class Line {
         this.threejsline.position.x = this.position.x;
         this.threejsline.position.y = this.position.y;
         this.threejsline.position.z = this.position.z;
-        console.log(this.threejsline);
+        // console.log(this.threejsline);
         linesgroup.add(this.threejsline);
     }
 
@@ -182,11 +182,12 @@ class Line {
         this.length = randomFloat(0.1, 0.5);
         this.starttime = timer.getElapsed();
 
+        // yeah it reuses line lengths but 1. who the fuck cares and 2. this *lags* when resuming
         // line.setPoints(points);
-        this.threejsline.geometry.setPoints([
-            new THREE.Vector3(0, 0, 0),
-            new THREE.Vector3(0, 0, this.length),
-        ], p => 0.001);
+        // this.threejsline.geometry.setPoints([
+        //     new THREE.Vector3(0, 0, 0),
+        //     new THREE.Vector3(0, 0, this.length),
+        // ], p => 0.001);
         this.threejsline.position.x = this.position.x;
         this.threejsline.position.y = this.position.y;
         this.threejsline.position.z = this.position.z;
@@ -205,12 +206,13 @@ let lines = arrayfromfunc(1000, () => new Line(false));
 
 let mousepos = {x: 0, y: 0};
 let visible = true;
+let paused = false;
 let id;
 
 function animate(now) {
-    console.log("render");
+    // console.log("render");
     // render
-    if (visible) {
+    if (visible && !paused) {
         id = requestAnimationFrame(animate);
     }
 
@@ -222,7 +224,7 @@ function animate(now) {
     timer.update(now);
     let randvec = curve.getPoint(timer.getElapsed() / 100);
     let euler = new THREE.Euler().setFromVector3(randvec);
-    const mouseinfluence = .45;
+    const mouseinfluence = 2 * Math.PI / 8; // 45 deg to radians
     euler.x += mousepos.y * mouseinfluence;
     euler.y += mousepos.x * mouseinfluence;
     logo.setRotationFromEuler(euler);
@@ -246,12 +248,24 @@ function animate(now) {
 }
 
 document.body.prepend(renderer.domElement);
+const pa = document.querySelector("#pauseanimation");
+pa.classList.remove("d-none");
+pa.addEventListener("click", () => {
+    if (paused) {
+        id = requestAnimationFrame(animate);
+        pa.innerText = "Pause Animation";
+    } else {
+        cancelAnimationFrame(id);
+        pa.innerText = "Play Animation";
+    }
+    paused = !paused;
+});
 
 // intersection observer to pause animation when not visible
 const intersectionObserver = new IntersectionObserver((entries) => {
     // let oldvisible = visible;
     visible = entries[0].intersectionRatio > 0;
-    if (visible) {
+    if (visible && !paused) {
         id = requestAnimationFrame(animate);
     } else {
         cancelAnimationFrame(id);

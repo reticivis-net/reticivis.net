@@ -119,3 +119,9 @@ body {
     color: #aaa;
     cursor: pointer;
 }
+
+#pauseanimation {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
