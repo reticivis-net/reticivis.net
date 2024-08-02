@@ -69,7 +69,7 @@
 
 body {
     /*padding-bottom: 45px;*/
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .afix, .afix:hover, .afix:active, .afix:focus {
@@ -124,4 +124,27 @@ body {
     width: 100%;
     padding: 10px;
     text-align: center;
+}
+
+
+.textemphasis {
+
+    font-size: 6rem;
+
+    /* https://stackoverflow.com/a/63791417/9044183 this mess */
+    --d: 100vh;
+    --angle: 25deg;
+    background: repeating-linear-gradient(var(--angle) in oklab, #4A32E6, #2E50E6, #8632E6, #C232E6, #E62EBE, #C232E6, #8632E6, #2E50E6, #4A32E6 var(--d));
+    background-size: calc(var(--d) / sin(var(--angle))) 100%;
+    animation: AnimationName 5s linear infinite reverse;
+    /* https://stackoverflow.com/a/69989367/9044183 yippee no vendor prefixes! */
+    color: transparent;
+    background-clip: text;
+    font-weight: bolder;
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: calc(var(--d) / sin(var(--angle))) 0;
+    }
 }
