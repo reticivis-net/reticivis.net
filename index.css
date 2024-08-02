@@ -111,11 +111,12 @@ body {
 }
 
 .cool-link {
-    color: #fff
+    color: #fff;
+    text-decoration: none;
 }
 
 .cool-link:hover {
-    text-decoration: none;
+    text-decoration: underline;
     color: #aaa;
     cursor: pointer;
 }
@@ -126,25 +127,27 @@ body {
     text-align: center;
 }
 
+@keyframes gradient {
+/*https://codepen.io/P1N2O/pen/pyBNzX*/
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 .textemphasis {
 
     font-size: 6rem;
-
-    /* https://stackoverflow.com/a/63791417/9044183 this mess */
-    --d: 100vh;
-    --angle: 25deg;
-    background: repeating-linear-gradient(var(--angle) in oklab, #4A32E6, #2E50E6, #8632E6, #C232E6, #E62EBE, #C232E6, #8632E6, #2E50E6, #4A32E6 var(--d));
-    background-size: calc(var(--d) / sin(var(--angle))) 100%;
-    animation: AnimationName 5s linear infinite reverse;
     /* https://stackoverflow.com/a/69989367/9044183 yippee no vendor prefixes! */
+    background-image: linear-gradient(-45deg in oklab, #4A32E6, #2E50E6, #8632E6, #C232E6, #E62EBE);
+    background-size: 400% 400%;
+    animation: gradient 5s linear infinite;
     color: transparent;
     background-clip: text;
     font-weight: bolder;
-}
-
-@keyframes AnimationName {
-    0% {
-        background-position: calc(var(--d) / sin(var(--angle))) 0;
-    }
 }
