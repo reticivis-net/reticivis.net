@@ -224,7 +224,7 @@ body {
     margin-bottom: 0;
 }
 
-.grid-item h3 img {
+.grid-item h3 img, .icon {
     display: inline-block;
     position: relative;
     /*ripped straight from fontawesome*/
@@ -245,6 +245,9 @@ body {
     position:absolute;
     top:1rem;
     right:1rem;
+}
+.link-icon img {
+    width: 1.5rem;
 }
 a.grid-item h3 {
     margin: 0 1.5rem ;
