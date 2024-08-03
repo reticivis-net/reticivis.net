@@ -1,0 +1,6 @@
+[submodule "mytimezone"]
+	path = mytimezone
+	url = https://github.com/reticivis-net/mytimezone
+[submodule "voxcorder"]
+	path = voxcorder
+	url = https://github.com/reticivis-net/voxcorder

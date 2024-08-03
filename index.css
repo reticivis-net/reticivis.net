@@ -42,12 +42,6 @@
     /*margin-bottom: 5px;*/
 }
 
-.header img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15%;
-}
 
 .block-header img {
     display: inline-block;
@@ -90,10 +84,12 @@ body {
 /*    }*/
 /*}*/
 
-@media (orientation: portrait) and (max-width: 400px) {
-    .header img {
-        width: 70%;
-    }
+
+.header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25vmin;
 }
 
 .link {
@@ -251,4 +247,14 @@ body {
 }
 a.grid-item h3 {
     margin: 0 1.5rem ;
+}
+
+/*make the footer always at the bottom*/
+.container-fluid {
+    flex-grow: 1;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
