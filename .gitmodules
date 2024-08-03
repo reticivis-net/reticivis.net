@@ -4,3 +4,6 @@
 [submodule "voxcorder"]
 	path = voxcorder
 	url = https://github.com/reticivis-net/voxcorder
+[submodule "creature"]
+	path = creature
+	url = https://github.com/reticivis-net/creature
