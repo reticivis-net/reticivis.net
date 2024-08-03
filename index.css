@@ -1,5 +1,10 @@
 :root {
     --bs-font-sans-serif: 'Atkinson Hyperlegible', Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /*the darkly green is kinda fugly*/
+    --bs-link-color: #f0f;
+    --bs-link-color-rgb: 255, 0, 255;
+    --bs-link-hover-color: #b515b0;
+    --bs-link-hover-color-rgb: 181, 21, 176;
 }
 
 .block {
@@ -79,11 +84,11 @@ body {
     outline: 0;
 }
 
-@media (max-width: 400px) {
-    body {
-        font-size: 2em;
-    }
-}
+/*@media (max-width: 400px) {*/
+/*    body {*/
+/*        font-size: 2em;*/
+/*    }*/
+/*}*/
 
 @media (orientation: portrait) and (max-width: 400px) {
     .header img {
@@ -143,8 +148,16 @@ body {
     animation: gradient 5s linear infinite;
 
     /*font-size:25vw;*/
-    /*6rem is the max, 25vw makes "Melody!" take up the whole width, and 1.5rem is roughly the padding between the text and the edges irl*/
-    font-size: min(calc(25vw - 1.5rem), 6rem);
+    /*
+    ok let me explain this mess
+    18vw makes the text take up the whole width
+    the -18% thing makes it account for the scroll bar for some reason?
+    and -.82rem makes it account for the margin (1-.18=.82)
+    and 6rem is the target/max
+    */
+    font-size: min(calc((18vw - 18%) - .82rem), 6rem);
+
+    font-weight: bolder;
     /*max-font-size: 6rem;*/
 
     /*white-space: nowrap;*/
@@ -156,7 +169,7 @@ body {
     /*DO NOT MOVE THIS ABOVE THE BACKGROUND CSS, IT BREAKS IT FOR SOME FUCKING REASON?*/
     color: transparent;
     background-clip: text;
-    font-weight: bolder;
+
 }
 
 /*@media screen and (max-width: 500px) {!*adjust*!*/
@@ -194,12 +207,45 @@ body {
 }
 
 .grid-item {
+    --item-width: 400px;
     padding: 1rem;
-    flex: 1 1 400px;
+    flex: 1 1 var(--item-width);
     margin: .5rem;
-    max-width: 500px;
+    /*it has to be able to grow up to 2x the min size to take up the whole column*/
+    max-width: calc(var(--item-width) * 2);
+}
+
+.grid-item h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.grid-item p:last-child {
+    margin-bottom: 0;
+}
+
+.grid-item h3 img {
+    display: inline-block;
+    position: relative;
+    /*ripped straight from fontawesome*/
+    height: 1em;
+    vertical-align: -.125em;
 }
 
 * {
     word-break: break-word;
+}
+
+.sparkle {
+    font-size: 60%;
+    vertical-align: middle;
+}
+
+.link-icon {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+}
+a.grid-item h3 {
+    margin: 0 1.5rem ;
 }
