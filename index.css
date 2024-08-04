@@ -184,12 +184,26 @@ body {
     /*filter: drop-shadow(0 0 0.5rem black);*/
 }
 
+
 .bg {
     background-image: url("assets/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*evil hack to get it to be fixed on safari ios*/
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    /*doesnt work on safari ios*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+}
+
+.container-fluid {
+    background: transparent !important;
     padding: 1rem;
-    background-attachment: fixed;
 }
 
 /*thanks to chatgpt for this*/
@@ -238,21 +252,24 @@ body {
 }
 
 .link-icon {
-    position:absolute;
-    top:1rem;
-    right:1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
+
 .link-icon img {
     width: 1.5rem;
 }
+
 a.grid-item h3 {
-    margin: 0 1.5rem ;
+    margin: 0 1.5rem;
 }
 
 /*make the footer always at the bottom*/
 .container-fluid {
     flex-grow: 1;
 }
+
 body {
     min-height: 100vh;
     display: flex;
