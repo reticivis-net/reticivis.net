@@ -270,12 +270,21 @@ a.grid-item h3 {
     flex-grow: 1;
 }
 
-html, body {
-    margin: 0;
-    min-height: 100%;
-}
-
 body {
     display: flex;
     flex-direction: column;
 }
+
+/*for some reason, these need to be set separately or else it dont fill properly*/
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+html, body {
+    margin: 0;
+}
+
