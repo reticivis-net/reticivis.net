@@ -270,8 +270,12 @@ a.grid-item h3 {
     flex-grow: 1;
 }
 
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 body {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
