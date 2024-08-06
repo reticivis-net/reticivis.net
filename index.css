@@ -7,6 +7,10 @@
     --bs-link-hover-color-rgb: 181, 21, 176;
 }
 
+canvas {
+    background: url("assets/load.svg") no-repeat center;
+}
+
 .block {
     background-color: #111;
     padding: 3px;
@@ -43,7 +47,7 @@
 }
 
 
-.block-header img {
+.block-header img, .icon {
     display: inline-block;
     height: 1em;
     vertical-align: middle;
@@ -230,7 +234,7 @@ body {
     font-weight: bold;
 }
 
-.grid-item p:last-child {
+.glass p:last-child {
     margin-bottom: 0;
 }
 
@@ -288,3 +292,12 @@ html, body {
     margin: 0;
 }
 
+.header h3 {
+    margin-top: 0.25em;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.header:has(h3) {
+    padding-bottom: 0;
+}

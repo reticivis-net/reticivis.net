@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+    <defs>
+        <style>
+            .cls-1 {
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 30px;
+            }
+
+            .cls-2 {
+            fill: #fff;
+            font-family: AtkinsonHyperlegible-Bold, 'Atkinson Hyperlegible';
+            font-size: 60px;
+            font-weight: 700;
+            }
+        </style>
+    </defs>
+    <path class="cls-1"
+          d="M414.88,585.12c-47.01-47.01-47.01-123.23,0-170.24,47.01-47.01,123.23-47.01,170.24,0,47.01,47.01,47.01,123.23,0,170.24">
+        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="-360 500 500" to="0 500 500"
+                          dur="1s" additive="sum" repeatCount="indefinite"/>
+    </path>
+    <text class="cls-2" transform="translate(362.93 710)">
+        <tspan x="0" y="0">Loading...</tspan>
+    </text>
+</svg>

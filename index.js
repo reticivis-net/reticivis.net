@@ -264,10 +264,10 @@ pa.classList.remove("d-none");
 pa.addEventListener("click", () => {
     if (paused) {
         id = requestAnimationFrame(animate);
-        pa.innerText = "Pause Animation";
+        pa.innerHTML = "<img src='assets/pause.svg' class='icon' alt='⏸️'/> Pause Animation";
     } else {
         cancelAnimationFrame(id);
-        pa.innerText = "Play Animation";
+        pa.innerHTML = "<img src='assets/play.svg' class='icon' alt='▶️'/> Play Animation";
     }
     paused = !paused;
 });

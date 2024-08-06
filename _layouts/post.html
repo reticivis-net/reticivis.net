@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{ page.title }} - MelBlog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content="{{ page.title }} - MelBlog - Rēticīvis"/>
+
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../childpages.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../../assets/fonts/JetBrainsMono/jetbrainsmono.css"/>
+    <link rel="stylesheet" type="text/css" href="../../assets/fonts/AtkinsonHyperlegible/atkinsonhyperlegible.css"/>
+
+    <link rel="icon" href="../../assets/reticivis_just_logo.svg">
+
+    <meta property="og:title" content="{{ page.title }} - MelBlog"/>
+    <meta property="og:description" content="{{ page.title }} - MelBlog - Rēticīvis"/>
+    <meta property="og:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
+    <meta content="#ffffff" data-react-helmet="true" name="theme-color"/>
+    <meta name="twitter:title" content="{{ page.title }} - MelBlog"/>
+    <meta name="twitter:description" content="{{ page.title }} - MelBlog - Rēticīvis"/>
+    <meta name="twitter:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
+    <meta name="darkreader-lock">
+</head>
+<body>
+<div class="header">
+    <a class="afix" href="../">
+        <img class="headerimg" src="../../assets/reticivis_just_logo.svg" alt="Reticivis">
+        <h3>MelBlog</h3>
+    </a>
+</div>
+<div class="bg"></div>
+<div class="container-fluid">
+    <div class="text-center">
+        <div class="glass d-inline-block px-4 py-2 text-center">
+            <h1 class="mb-0 fw-bold">{{ page.title }}</h1>
+            <h5 class="text-muted mb-4">{{ page.date | date_to_long_string }}</h5>
+            <div class="text-start">
+                {{ content }}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p class="mb-0">&copy; 2024 Rēticīvis · <a href="../../ack">Acknowledgements</a> · <a
+            href="https://github.com/reticivis-net/reticivis.net">Source</a></p>
+</div>
+<!--<script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="libs/fontawesome/solid.min.js" type="module"></script>-->
+<!--<script src="libs/fontawesome/fontawesome.min.js" type="module"></script>-->
+</body>
+</html>
