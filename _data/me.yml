@@ -1,0 +1,47 @@
+- title: "Support Me!"
+  link: "https://ko-fi.com/reticivis"
+  image_url: "assets/coffee.png"
+  image_alt: "☕"
+  content: >
+    If you like what I do, send a couple dollars my way at my Ko-fi!
+
+- title: "MelBlog"
+  link: "blog"
+  image_url: "assets/blog.svg"
+  image_alt: "📝"
+  content: >
+    Come check out my blog where I post my ramblings, findings, things I find 
+    interesting, and things I think the internet might find interesting or useful.
+
+- title: "What is Rēticīvis?"
+  image_url: "assets/comment-question.svg"
+  image_alt: "❓"
+  content: >
+    Rēticīvis is a Latin 
+    <a href="https://en.wiktionary.org/wiki/neologism#Noun">neologism</a> 
+    <a href="https://o-eheu.tumblr.com/post/119369980976/reticivis-dictyopolites">coined by O, Eheu</a> 
+    that means "citizen of the internet" or "netizen". 
+    It is a direct combination of "rēte" (net) and "cīvis" (citizen).
+
+- title: "Who is Rēticīvis?"
+  image_url: "assets/person-circle-question.svg"
+  image_alt: "🧍"
+  content: >
+    Hello! My name is Melody, and I am the developer behind this website and all 
+    projects listed here. Contact me at 
+    <a href='mailto:me@reticivis.net'>me@reticivis.net</a>.
+
+- title: "What is reticivis.net?"
+  image_url: "assets/globe-pointer.svg"
+  image_alt: "🌐"
+  content: >
+    This website is a 1 page "portfolio"-type website to link all of my projects 
+    back to 1 identity/page.
+
+- title: "What is the Rēticīvis logo?"
+  image_url: "assets/reticivis_just_logo.svg"
+  image_alt: "♾️"
+  content: >
+    Designed by a friend of mine in my college's graphic design class, the logo 
+    combines 3 elements: the <code>&lt;tagname&gt;</code> style tags used in 
+    HTML, the letter 𝑥 as used in algebra, and an infinity symbol.
