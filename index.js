@@ -34,6 +34,7 @@ const logomaterial = new THREE.MeshStandardMaterial({
 // scene.background = new THREE.Color(0xD3E8F0);
 
 const loader = new GLTFLoader();
+let loaded = false;
 loader.load('./assets/reticivis.glb', function (gltf) {
     logo = gltf.scene;
 
@@ -55,9 +56,10 @@ loader.load('./assets/reticivis.glb', function (gltf) {
     };
     scene.add(logo)
     // scene.add(logo);
-    console.debug(logo);
+    // console.debug(logo);
     onWindowResize();
     animate();
+    loaded = true;
 }, console.debug, console.error);
 
 
@@ -217,7 +219,7 @@ function frame_independent_lerp_smoothing(a, b, dt) {
 }
 
 function animate(now) {
-    // console.log("render");
+    // console.debug("render");
     // render
     if (visible && !paused) {
         id = requestAnimationFrame(animate);
@@ -284,10 +286,12 @@ document.body.prepend(renderer.domElement);
 const intersectionObserver = new IntersectionObserver((entries) => {
     // let oldvisible = visible;
     visible = entries[0].intersectionRatio > 0;
-    if (visible && !paused) {
-        id = requestAnimationFrame(animate);
-    } else {
-        cancelAnimationFrame(id);
+    if (!paused && loaded) {
+        if (visible) {
+            id = requestAnimationFrame(animate);
+        } else {
+            cancelAnimationFrame(id);
+        }
     }
 });
 intersectionObserver.observe(renderer.domElement);
