@@ -258,9 +258,15 @@ function animate(now) {
     renderer.render(scene, camera);
 }
 
-document.body.prepend(renderer.domElement);
-const pa = document.querySelector("#pauseanimation");
-pa.classList.remove("d-none");
+
+
+function htmlToNode(html) {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+let pa = htmlToNode(`<button id="pauseanimation" type="button" class="btn btn-dark"><img src='assets/pause.svg' class='icon'
+                                                                                          alt="⏸️"/> Pause Animation</button>`)
 pa.addEventListener("click", () => {
     if (paused) {
         id = requestAnimationFrame(animate);
@@ -271,6 +277,8 @@ pa.addEventListener("click", () => {
     }
     paused = !paused;
 });
+document.body.prepend(pa);
+document.body.prepend(renderer.domElement);
 
 // intersection observer to pause animation when not visible
 const intersectionObserver = new IntersectionObserver((entries) => {

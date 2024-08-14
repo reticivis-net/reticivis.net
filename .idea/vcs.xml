@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/blog" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/creature" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/mytimezone" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/voxcorder" vcs="Git" />

@@ -1,0 +1,67 @@
+{%- assign title = page.title -%}
+{%- assign description = page.description -%}
+
+{%- if layout.post -%}
+    {%- assign title = title | append: " - MelBlog" -%}
+    {%- assign description = page.excerpt | strip_html | replace: "    ", " " | strip_newlines -%}
+{%- endif -%}
+{%- if layout.child or page.child -%}
+    {%- assign title = title | append: " - Rēticīvis" -%}
+{%- endif -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content="{{ description }}"/>
+    <link rel="icon" href="/assets/reticivis_just_logo.svg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/index.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/JetBrainsMono/jetbrainsmono.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/AtkinsonHyperlegible/atkinsonhyperlegible.css"/>
+
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:description" content="{{ description }}"/>
+    <meta property="og:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
+    <meta content="#ffffff" data-react-helmet="true" name="theme-color"/>
+
+    <meta name="twitter:title" content="{{ title }}"/>
+    <meta name="twitter:description" content="{{ description }}"/>
+    <meta name="twitter:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
+
+    <meta name="darkreader-lock">
+
+    {{ page.head }}
+
+    {%- if layout.child or page.child -%}
+        <link rel="stylesheet" type="text/css" href="/childpages.css"/>
+    {%- endif -%}
+</head>
+<body>
+<div class="header">
+    <a class="afix" href="{%- if layout.post -%} /blog {%- else -%} / {%- endif -%}">
+        {%- comment -%}
+        Jekyll doesn't support "inheritance" of variables from one layout to the other, so this evil hack is the best solution...
+        {%- endcomment -%}
+        {%- if layout.child or page.child -%}
+            <img class="headerimg" src="/assets/reticivis_just_logo.svg" alt="Reticivis">
+            <h3>{%- if layout.post -%} MelBlog {%- else -%} {{ page.title }} {%- endif -%}</h3>
+        {%- else -%}
+            <img class="headerimg" src="/assets/reticivis.svg" alt="Reticivis">
+        {%- endif -%}
+    </a>
+</div>
+<div class="bg"></div>
+<div class="container-fluid">
+    {{ content }}
+</div>
+
+<div class="footer">
+    <p class="mb-0">&copy; 2024 Rēticīvis · <a href="/ack">Acknowledgements</a>
+        · <a href="https://github.com/reticivis-net/reticivis.net">Source</a></p>
+</div>
+</body>
+</html>

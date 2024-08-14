@@ -1,3 +1,8 @@
 .header img {
     width: 15vmin;
 }
+
+.header h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
+}

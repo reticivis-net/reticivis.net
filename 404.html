@@ -1,59 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>404 - Rēticīvis</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="description" content="404 - Rēticīvis"/>
-
-    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
-    <link rel="stylesheet" type="text/css" href="childpages.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
-
-    <link rel="stylesheet" type="text/css" href="assets/fonts/JetBrainsMono/jetbrainsmono.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/fonts/AtkinsonHyperlegible/atkinsonhyperlegible.css"/>
-
-    <link rel="icon" href="assets/reticivis_just_logo.svg">
-
-    <meta property="og:title" content="404"/>
-    <meta property="og:description" content="404 - Rēticīvis"/>
-    <meta property="og:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
-    <meta name="twitter:title" content="404"/>
-    <meta name="twitter:description" content="404 - Rēticīvis"/>
-    <meta name="twitter:image" content="https://reticivis.net/assets/reticivis_just_logo.png"/>
+---
+layout: child
+title: 404
+description: The document/file requested was not found on this server. That's all we know.
+head: |
     <style>
         /* for some reason, cant do this as inline style, it has to be css, so whatever */
         .textemphasis {
             font-size: min(calc((36vw - 36%) - .64rem), 12rem) !important;
         }
     </style>
-    <meta name="darkreader-lock">
-</head>
-<body>
-<div class="header">
-    <a class="afix" href="./">
-        <img class="headerimg" src="assets/reticivis_just_logo.svg" alt="Reticivis">
-    </a>
-</div>
-<div class="bg"></div>
-<div class="container-fluid">
-    <div class="text-center">
-        <div class="glass d-inline-block text-center px-4 py-2">
-            <h1 class="mb-0"><span class="textemphasis">
-                404
-            </span></h1>
-            <h1>Not Found</h1>
-            <h3>The document/file requested was not found on this server. That's all we know.</h3>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    <p class="mb-0">&copy; 2024 Rēticīvis</p>
-</div>
-<!--<script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!--<script src="libs/fontawesome/solid.min.js" type="module"></script>-->
-<!--<script src="libs/fontawesome/fontawesome.min.js" type="module"></script>-->
-</body>
-</html>
+---
+<h1 class="mb-0">
+    <span class="textemphasis">404</span>
+</h1>
+<h1>Not Found</h1>
+<h3>The document/file requested was not found on this server. That's all we know.</h3>
