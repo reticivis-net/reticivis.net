@@ -200,7 +200,7 @@ body {
     z-index: -1;
 
     /*doesnt work on safari ios*/
-    /*background-size: cover;*/
+    background-size: cover;
     /*background-repeat: no-repeat;*/
     /*background-attachment: fixed;*/
 }
