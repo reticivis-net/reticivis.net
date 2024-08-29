@@ -34,6 +34,12 @@
   image_alt: "📹"
   content: "A utility to sort and slice a captioned video into a dataset for Tacotron."
 
+- title: "Kyocera Printer Monitor"
+  link: "https://github.com/reticivis-net/kyocera-printer-monitor"
+  image_url: "assets/print.svg"
+  image_alt: "🖨️"
+  content: "A highly specialized Rust program designed to make monitoring a fleet of Kyocera printers dead easy."
+
 - title: "My Timezone"
   link: "mytimezone"
   image_url: "assets/clock.svg"
