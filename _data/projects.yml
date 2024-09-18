@@ -38,7 +38,13 @@
   link: "https://github.com/reticivis-net/kyocera-printer-monitor"
   image_url: "assets/print.svg"
   image_alt: "🖨️"
-  content: "A highly specialized Rust program designed to make monitoring a fleet of Kyocera printers dead easy."
+  content: "A highly specialized program designed to make monitoring a fleet of Kyocera printers dead easy."
+
+- title: "MelUtils"
+  link: "https://github.com/reticivis-net/melutils"
+  image_url: "assets/roundmelutils.png"
+  image_alt: "🔨"
+  content: "A janky home-grown collection of various utility commands, primarily moderation, in a Discord bot."
 
 - title: "My Timezone"
   link: "mytimezone"
