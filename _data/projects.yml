@@ -1,4 +1,4 @@
-- title: "GitHub"
+- title: "My GitHub"
   link: "https://github.com/reticivis-net"
   image_url: "assets/github.png"
   image_alt: "🐙"
@@ -28,6 +28,12 @@
   image_alt: "🌲"
   content: "A beautiful and minimalistic new tab extension."
 
+- title: "MelUtils"
+  link: "https://github.com/reticivis-net/melutils"
+  image_url: "assets/roundmelutils.png"
+  image_alt: "🔨"
+  content: "A janky home-grown collection of various utility commands, primarily moderation, in a Discord bot."
+
 - title: "aidatasetfromvideo"
   link: "https://github.com/reticivis-net/aidatasetfromvideo"
   image_url: "assets/aidfv.png"
@@ -40,11 +46,35 @@
   image_alt: "🖨️"
   content: "A highly specialized program designed to make monitoring a fleet of Kyocera printers dead easy."
 
-- title: "MelUtils"
-  link: "https://github.com/reticivis-net/melutils"
-  image_url: "assets/roundmelutils.png"
-  image_alt: "🔨"
-  content: "A janky home-grown collection of various utility commands, primarily moderation, in a Discord bot."
+- title: "Melody's Lamps"
+  link: "https://github.com/reticivis-net/melodys-lamps"
+  image_url: "assets/lamps.png"
+  image_alt: "💡"
+  content: "A Factorio mod that adds a fully signal-controllable RGB lamp and two very large lamps."
+
+- title: "Infineffect"
+  link: "https://github.com/reticivis-net/infineffect"
+  image_url: "assets/infineffect.png"
+  image_alt: "🧪"
+  content: "A Minecraft 1.19.2 Fabric mod that shows the real duration of long effects instead of **:**."
+
+- title: "jpegcorruption"
+  link: "https://github.com/reticivis-net/jpegcorruption"
+  image_url: "assets/jpegcorruption.jpg"
+  image_alt: "🖼️"
+  content: "a Python script to generate moving glitch art by repeatedly corrupting JPEG images."
+
+- title: "S**tboard"
+  link: "https://github.com/reticivis-net/shitboard"
+  image_url: "assets/s__tboard.png"
+  image_alt: "📌"
+  content: "A \"very good\" app icon theme for jailbroken Apple devices."
+
+- title: "Wyred"
+  link: "https://github.com/reticivis-net/wyred"
+  image_url: "assets/wyred.png"
+  image_alt: "🔌"
+  content: "An incomplete Unity game I made for school about boolean logic gates."
 
 - title: "My Timezone"
   link: "mytimezone"
@@ -62,4 +92,6 @@
   link: "creature"
   image_url: "creature/tbh%20creature.png"
   image_alt: "🐈"
-  content: "A very strange page."
+  content: "A very strange webpage."
+
+# bundle exec jekyll serve
