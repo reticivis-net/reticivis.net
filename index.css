@@ -180,7 +180,7 @@ body {
 .glass {
     /*margin: 1rem;*/
     /*padding: 1rem;*/
-    /*backdrop-filter: blur(1rem);*/
+    backdrop-filter: blur(1rem);
     border-radius: 1rem;
     background: #0006;
     /*outline: 0.25rem solid #0003;*/
