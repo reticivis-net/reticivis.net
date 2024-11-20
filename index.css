@@ -188,25 +188,42 @@ body {
     /*filter: drop-shadow(0 0 0.5rem black);*/
 }
 
+@supports (not (background-attachment: fixed)) {
+    .safari-bg {
+        background-image: url("assets/bg.png");
+        /*evil hack to get it to be fixed on safari ios*/
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
 
-.bg {
-    background-image: url("assets/bg.png");
-    /*evil hack to get it to be fixed on safari ios*/
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+        /*doesnt work on safari ios*/
+        background-size: cover;
+        /*background-repeat: no-repeat;*/
+        /*background-attachment: fixed;*/
+    }
+    .bg {
+        background: transparent !important;
+    }
+}
 
-    /*doesnt work on safari ios*/
-    background-size: cover;
-    /*background-repeat: no-repeat;*/
-    /*background-attachment: fixed;*/
+@supports (background-attachment: fixed) {
+    .safari-bg {
+        display: none;
+    }
+
+    .bg {
+        background-image: url("assets/bg.png");
+        /*doesnt work on safari ios*/
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
 }
 
 .container-fluid {
-    background: transparent !important;
     padding: 1rem;
 }
 
