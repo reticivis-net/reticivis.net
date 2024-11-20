@@ -188,7 +188,7 @@ body {
     /*filter: drop-shadow(0 0 0.5rem black);*/
 }
 
-@supports (not (background-attachment: fixed)) {
+@supports (-webkit-touch-callout: inherit) or (not (background-attachment: fixed)) {
     .safari-bg {
         background-image: url("assets/bg.png");
         /*evil hack to get it to be fixed on safari ios*/
@@ -209,7 +209,7 @@ body {
     }
 }
 
-@supports (background-attachment: fixed) {
+@supports (background-attachment: fixed) and (not (-webkit-touch-callout: inherit)) {
     .safari-bg {
         display: none;
     }
